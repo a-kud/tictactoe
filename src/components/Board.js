@@ -18,8 +18,10 @@ class Board extends React.Component {
             this.state.winnerSquares ?
                     this.state.winnerSquares.includes(n) :
                     "false"
-        } index={n}*/ value={ this.props.squareValue }
-            onClick={(n) => { this.props.onClick(n) }}
+        } index={n}*/
+            /*foo={ console.log(this.props) }*/
+            value={ this.props.squares[n] }
+            onClick={() => { this.props.onClick(n) }}
                 />
     }
 /*

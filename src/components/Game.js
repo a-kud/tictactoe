@@ -20,7 +20,9 @@ class Game extends React.Component {
             xNext = this.state.xNext,
             squareValue = grid[n];
 
-        if (!squareValue) {
+        console.log(grid, xNext, squareValue, n);
+
+        if (/*!squareValue*/true) {
             grid[n] = xNext ? "X" : "O";
             let vaccantCellIndicies = grid.map((v, i) => { if(!v) {return i;} } );
             let vaccantCells = vaccantCellIndicies.filter((v) => v); // filter falsy values
@@ -77,12 +79,15 @@ class Game extends React.Component {
     }
 
     render() {
+
+        const grid = this.state.grid.slice()
         return (
             <div className="game-area">
                 <Board
-                    squares={this.state.grid}
-                    onClick={(i) => this.handleClick(i)}
+                    squares={grid}
+                    onClick={(n) => {this.handleClick(n)} }
                 />
+                <div>{"Next player ", (this.state.xNext ? "X" : "O")}</div>
             </div>
         );
     }

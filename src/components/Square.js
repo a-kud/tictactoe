@@ -1,7 +1,9 @@
 import React from "react";
 
 class Square extends React.Component {
-
+    constructor(props) {
+        super(props);
+    }
     render() {
         let isWinner =  "",
             classList = `${isWinner} square`;
