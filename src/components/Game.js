@@ -1,4 +1,5 @@
 import React from 'react';
+import VanillaModal from 'vanilla-modal'
 import Board from './Board';
 
 class Game extends React.Component {
@@ -105,3 +106,6 @@ export default Game;
 function getRandom(n) {
     return Math.floor(Math.random() * n);
 }
+
+const modal = new VanillaModal();
+modal.open('#prompt-modal');
