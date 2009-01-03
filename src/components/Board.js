@@ -2,7 +2,7 @@ import React from 'react';
 import Square from "./Square";
 
 class Board extends React.Component {
-    constructor() {
+    /*constructor() {
         super();
         this.state = {
             grid: Array(9).fill(null),
@@ -11,18 +11,18 @@ class Board extends React.Component {
             winner: "", // X O or draw
             round: 0,
         };
-    }
+    }*/
 
     makeSquare(n) {
-        return <Square hasWon={
+        return <Square /*hasWon={
             this.state.winnerSquares ?
                     this.state.winnerSquares.includes(n) :
                     "false"
-        } index={n} value={ this.state.grid[n] }
-            onClick={() => { this.handleClick(n) }}
+        } index={n}*/ value={ this.props.squareValue }
+            onClick={(n) => { this.props.onClick(n) }}
                 />
     }
-
+/*
     // n - board index
     handleClick(n) {
         let grid = this.state.grid.slice(),
@@ -84,7 +84,7 @@ class Board extends React.Component {
             //console.log("draw");
         }
     }
-
+*/
     render() {
         return (
             <div className="board">
@@ -109,8 +109,3 @@ class Board extends React.Component {
 }
 
 export default Board;
-
-// n - integer
-function getRandom(n) {
-    return Math.floor(Math.random() * n);
-}
