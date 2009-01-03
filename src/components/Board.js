@@ -19,7 +19,7 @@ class Board extends React.Component {
                     this.state.winnerSquares.includes(n) :
                     "false"
         } index={n}*/
-            /*foo={ console.log(this.props) }*/
+            foo={ this.props.hasWon(n) }
             value={ this.props.squares[n] }
             onClick={() => { this.props.onClick(n) }}
                 />
