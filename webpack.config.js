@@ -5,7 +5,7 @@ var config = {
     entry: [ "./main.js", ],
     output: {
         path: path.join(__dirname, "www"),
-        filename: "budnle.js",
+        filename: "bundle.js",
     },
     module: {
         loaders: [
