@@ -6,6 +6,6 @@ import Counter from "./Counter";
 document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(
         <Counter />,
-        document.querySelector("#mount")
+        document.querySelector("#board")
     );
 });
