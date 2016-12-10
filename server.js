@@ -4,17 +4,24 @@ var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
 var app = express();
 var compiler = webpack(webpackConfig);
+var webpackHotMiddleware = require("webpack-hot-middleware");
 
 app.use(express.static(__dirname + "/www"));
 
 app.use(webpackDevMiddleware(compiler, {
     hot: true,
     filename: "bundle.js",
-    publicPath: "/",
+    publicPath: "/assets/",
     stats: {
         colors: true,
     },
     historyApiFallback: true,
+}));
+
+app.use(webpackHotMiddleware(compiler, {
+    log: console.log,
+    path: "/__webpack_hmr",
+    heartbeat: 10 * 1000,
 }));
 
 var server = app.listen(3000, function(){
