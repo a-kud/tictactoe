@@ -1,11 +1,18 @@
 import React from "react";
 
 class Square extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            value: null,
+        };
+    }
     render() {
         return (
             <span className="square" onClick={() => {
-                alert("clicked");
-            }}></span>
+                this.setState({ value: "X"})
+
+            }}>{this.state.value}</span>
         );
     }
 }
