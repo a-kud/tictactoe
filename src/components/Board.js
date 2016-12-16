@@ -2,9 +2,21 @@ import React from 'react';
 import Square from "./Square";
 
 class Board extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            grid: Array(9).fill(null),
+        };
+    }
 
     makeSquare(n) {
-        return <Square />
+        return <Square value={ this.state.grid[n] }
+            onClick={() => { this.handleClick(n) }}
+                />
+    }
+
+    handleClick(n) {
+
     }
 
     render() {
