@@ -6,6 +6,7 @@ class Board extends React.Component {
         super();
         this.state = {
             grid: Array(9).fill(null),
+            xNext: true,
         };
     }
 
@@ -16,7 +17,15 @@ class Board extends React.Component {
     }
 
     handleClick(n) {
+        let grid = this.state.grid.slice(),
+            xNext = this.state.xNext,
+            squareValue = grid[n];
 
+        if (!squareValue) {
+            grid[n] = xNext ? "X" : "O";
+            this.setState({grid: grid,
+                           xNext: !xNext});
+        }
     }
 
     render() {

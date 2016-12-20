@@ -4,7 +4,9 @@ class Square extends React.Component {
 
     render() {
         return (
-            <span className="square">{this.props.onClick()}</span>
+            <span className="square" onClick={() => this.props.onClick()}>
+                {this.props.value}
+            </span>
         );
     }
 }
