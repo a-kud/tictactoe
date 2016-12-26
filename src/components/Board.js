@@ -7,11 +7,13 @@ class Board extends React.Component {
         this.state = {
             grid: Array(9).fill(null),
             xNext: true,
+            winnerSquares: null,
+            winner: "", // X O or draw
         };
     }
 
     makeSquare(n) {
-        return <Square value={ this.state.grid[n] }
+        return <Square hasWon={false} index={n} value={ this.state.grid[n] }
             onClick={() => { this.handleClick(n) }}
                 />
     }
@@ -55,7 +57,14 @@ class Board extends React.Component {
             });
         });
 
-        if (winner.length > 0) {console.log(player, "wins"); return winner;}
+        if (winner.length > 0) {
+            console.log(player, "wins");
+            this.setState({
+                winnerSquares: winner,
+                winner: player,
+            })
+            return winner;
+        }
     }
 
     render() {
