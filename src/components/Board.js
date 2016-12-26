@@ -64,6 +64,10 @@ class Board extends React.Component {
                 winner: player,
             })
             return winner;
+        } else {
+            this.setState({
+                winner: "draw",
+            });
         }
     }
 
