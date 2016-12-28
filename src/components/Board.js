@@ -27,12 +27,32 @@ class Board extends React.Component {
         let grid = this.state.grid.slice(),
             xNext = this.state.xNext,
             squareValue = grid[n];
-
+        console.log(this.state.xNext);
         if (!squareValue) {
             grid[n] = xNext ? "X" : "O";
             this.setState({grid: grid,
-                           xNext: !xNext}, () => this.findWinner(grid[n]));
+                           xNext: !xNext,}, () => {
+                            this.findWinner(grid[n]);
+                            let vaccantCellIndicies = grid.map((v, i) => { if(!v) {return i;} } );
+                            let vaccantCells = vaccantCellIndicies.filter((v) => v); // filter falsy values
+                            let aiCell = vaccantCells[getRandom(vaccantCells.length)];
+                            grid[aiCell] = !xNext ? "X" : "O";
+                            this.setState({
+                                grid: grid,
+                            });
+                           });
         }
+        console.log(this.state.xNext);
+        setTimeout(()=>console.log(this.state.xNext), 2500)
+
+        // let vaccantCellIndicies = grid.map((v, i) => { if(!v) {return i;} } );
+        // let vaccantCells = vaccantCellIndicies.filter((v) => v); // filter falsy values
+        // let aiCell = vaccantCells[getRandom(vaccantCells.length)];
+        // grid[aiCell] = xNext ? "X" : "O";
+        // console.log(grid);
+        // this.setState({
+        //     grid: grid,
+        // });
     }
 
     findWinner(player) {
@@ -98,3 +118,8 @@ class Board extends React.Component {
 }
 
 export default Board;
+
+// n - integer
+function getRandom(n) {
+    return Math.floor(Math.random() * n);
+}
