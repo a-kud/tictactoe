@@ -9,6 +9,7 @@ class Board extends React.Component {
             xNext: true,
             winnerSquares: null,
             winner: "", // X O or draw
+            round: 0,
         };
     }
 
@@ -41,6 +42,7 @@ class Board extends React.Component {
                             this.findWinner("O");
                            });
         }
+        console.log(this.state.winner);
     }
 
     findWinner(player) {
@@ -79,7 +81,7 @@ class Board extends React.Component {
             this.setState({
                 winner: "draw",
             });
-            console.log("draw");
+            //console.log("draw");
         }
     }
 
