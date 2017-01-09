@@ -8,6 +8,13 @@ var webpackHotMiddleware = require("webpack-hot-middleware");
 
 app.use(express.static(__dirname + "/www"));
 
+app.set('views', __dirname + '/src/views');
+app.set('view engine', 'pug');
+
+app.get('/', function (req, res) {
+  res.render('index');
+})
+
 app.use(webpackDevMiddleware(compiler, {
     hot: true,
     filename: "bundle.js",
