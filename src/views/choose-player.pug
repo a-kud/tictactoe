@@ -1,9 +1,12 @@
+.modal-links
+	a(href="#prompt-modal" rel="modal:open") Prompt
+
 .modal
 	.modal-inner
-		a(rel='modal:close') Close
+		a(rel="modal:close") X
 		.modal-content
-			p Foo Bar
-#prompt-modal(style='display:none')
+
+#prompt-modal.modal-hider
 	p Please choose player
 	button X
 	button O

@@ -2,7 +2,8 @@ doctype html
 html
     head
         include head.pug
-    body
+    body.vanilla-modal
         include game.pug
         include choose-player.pug
         script(src="/bundle.js")
+        script(src="../node_modules/vanilla-modal/dist/index.js")

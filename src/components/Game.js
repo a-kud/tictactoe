@@ -108,4 +108,4 @@ function getRandom(n) {
 }
 
 const modal = new VanillaModal();
-modal.open('#prompt-modal');
+//modal.open('#prompt-modal');
