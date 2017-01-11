@@ -30,7 +30,7 @@
       border: 0.5rem solid yellow
   }
 
-  body.vanilla-modal .modal-hider {
+ .modal-hider {
       position: absolute;
       left: -99999em;
     }

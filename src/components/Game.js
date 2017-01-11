@@ -94,7 +94,7 @@ class Game extends React.Component {
                                 "false";
                     }}
                 />
-                <div>{"Next player ", (this.state.xNext ? "X" : "O")}</div>
+                <div>{"Next player " + (this.state.xNext ? "X" : "O")}</div>
             </div>
         );
     }
@@ -107,5 +107,7 @@ function getRandom(n) {
     return Math.floor(Math.random() * n);
 }
 
-const modal = new VanillaModal();
-//modal.open('#prompt-modal');
+const modal = new VanillaModal({
+    page: "html",
+});
+modal.open('#prompt-modal');
