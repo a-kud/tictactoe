@@ -85,6 +85,7 @@ class Game extends React.Component {
         const grid = this.state.grid.slice();
 
         return (
+
             <div className="game-area">
                 <Board
                     squares={grid}
@@ -98,6 +99,7 @@ class Game extends React.Component {
                 <div>{"Next player " + (this.state.xNext ? "X" : "O")}</div>
                 <Modal />
             </div>
+
         );
     }
 }
@@ -113,4 +115,4 @@ const modal = new VanillaModal({
     page: "html",
     clickOutside: false,
 });
-modal.open('#prompt-modal');
+// modal.open('#prompt-modal');

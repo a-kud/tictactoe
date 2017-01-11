@@ -7,6 +7,7 @@ var compiler = webpack(webpackConfig);
 var webpackHotMiddleware = require("webpack-hot-middleware");
 
 app.use(express.static(__dirname + "/www"));
+app.use(express.static(__dirname));
 
 app.set('views', __dirname + '/src/views');
 app.set('view engine', 'pug');
