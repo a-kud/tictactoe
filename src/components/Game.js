@@ -1,6 +1,7 @@
-import React from 'react';
-import VanillaModal from 'vanilla-modal'
-import Board from './Board';
+import React from "react";
+import VanillaModal from "vanilla-modal";
+import Board from "./Board";
+import Modal from "./Modal";
 
 class Game extends React.Component {
     constructor() {
@@ -95,6 +96,7 @@ class Game extends React.Component {
                     }}
                 />
                 <div>{"Next player " + (this.state.xNext ? "X" : "O")}</div>
+                <Modal />
             </div>
         );
     }
@@ -109,5 +111,6 @@ function getRandom(n) {
 
 const modal = new VanillaModal({
     page: "html",
+    clickOutside: false,
 });
 modal.open('#prompt-modal');
