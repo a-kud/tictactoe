@@ -111,8 +111,8 @@ function getRandom(n) {
     return Math.floor(Math.random() * n);
 }
 
-const modal = new VanillaModal({
-    page: "html",
-    clickOutside: false,
-});
-modal.open('#prompt-modal');
+// const modal = new VanillaModal({
+//     page: "body",
+//     clickOutside: false,
+// });
+// modal.open('#prompt-modal');

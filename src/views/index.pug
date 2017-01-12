@@ -6,4 +6,9 @@ html
         include game.pug
         include choose-player.pug
         script(src="/bundle.js")
-        //- /*script(src="../node_modules/vanilla-modal/dist/index.js")*/
+        script(src="../node_modules/vanilla-modal/dist/index.js")
+        script
+            | const modal = new VanillaModal({
+            |     clickOutside: false,
+            | });
+            | modal.open('#prompt-modal');
