@@ -97,7 +97,7 @@ class Game extends React.Component {
                     }}
                 />
                 <div>{"Next player " + (this.state.xNext ? "X" : "O")}</div>
-                <Modal />
+                <Modal  />
             </div>
 
         );
@@ -115,4 +115,4 @@ const modal = new VanillaModal({
     page: "html",
     clickOutside: false,
 });
-// modal.open('#prompt-modal');
+modal.open('#prompt-modal');
