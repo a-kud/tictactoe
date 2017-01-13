@@ -102,9 +102,7 @@ class Game extends React.Component {
                         this.setState({
                             xNext: (player == "X") ? true : false,
                         })
-                        console.log("true");
-                        // this.state.xNext = false;
-                        // modal.close('#prompt-modal');
+                        modal.close('#prompt-modal');
                     }}
                 />
             </div>
