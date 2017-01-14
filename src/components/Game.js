@@ -2,6 +2,22 @@ import React from "react";
 import VanillaModal from "vanilla-modal";
 import Board from "./Board";
 import Modal from "./Modal";
+import WinnerModal from "./WinnerModal";
+
+// n - integer
+function getRandom(n) {
+    return Math.floor(Math.random() * n);
+}
+
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+const modal = new VanillaModal({
+    page: "html",
+    clickOutside: false,
+});
+//modal.open("#prompt-modal");
 
 class Game extends React.Component {
     constructor() {
@@ -33,11 +49,20 @@ class Game extends React.Component {
             this.setState({
                 grid: grid,
                           }, () => {
-                            this.findWinner("X");
-                            this.findWinner("O");
+                            if (this.findWinner("X") || this.findWinner("O")) {
+                                sleep(100)
+                                    .then(() => {
+                                        Promise.resolve(alert(this.state.winner + "wins"))
+                                        .then(() => {
+                                            this.setState({
+                                                grid: Array(9).fill(null),
+                                            })
+                                        })
+                                    });
+                            }
                            });
         }
-        console.log(this.state.winner);
+        //console.log(this.state.winner);
     }
 
     findWinner(player) {
@@ -66,11 +91,13 @@ class Game extends React.Component {
         });
 
         if (winner.length > 0) {
-            console.log(player, "wins");
+
             this.setState({
                 winnerSquares: [].concat(...winner),
                 winner: player,
-            })
+            },/* () => alert(this.state.winner)*/);
+
+
             return winner;
         } else {
             this.setState({
@@ -112,14 +139,3 @@ class Game extends React.Component {
 }
 
 export default Game;
-
-// n - integer
-function getRandom(n) {
-    return Math.floor(Math.random() * n);
-}
-
-const modal = new VanillaModal({
-    page: "body",
-    clickOutside: false,
-});
-//modal.open('#prompt-modal');
