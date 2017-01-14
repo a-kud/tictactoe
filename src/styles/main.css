@@ -23,7 +23,7 @@
    * Modal starts here.
    */
   .modal {
-    /*display: none;*/
+    display: none;
   }
 
   .modal-content {
