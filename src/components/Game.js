@@ -122,4 +122,4 @@ const modal = new VanillaModal({
     page: "body",
     clickOutside: false,
 });
-modal.open('#prompt-modal');
+//modal.open('#prompt-modal');

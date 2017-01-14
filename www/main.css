@@ -8,6 +8,11 @@
     display: flex;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   /**
    * This is just for the rest of page.
    */
