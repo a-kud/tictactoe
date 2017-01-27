@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
 app.use(webpackDevMiddleware(compiler, {
     hot: true,
     filename: "bundle.js",
-    publicPath: "/assets/",
+    publicPath: "/www/",
     stats: {
         colors: true,
     },

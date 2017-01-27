@@ -10,7 +10,7 @@ var config = {
     output: {
         path: path.join(__dirname, "www"),
         filename: "bundle.js",
-        publicPath: "/assets/",
+        publicPath: "/www/",
     },
     module: {
         loaders: [
