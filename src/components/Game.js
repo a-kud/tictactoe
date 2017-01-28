@@ -102,7 +102,6 @@ class Game extends React.Component {
             this.setState({
                 winner: "draw",
             });
-            //console.log("draw");
         }
     }
 
