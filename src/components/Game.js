@@ -61,8 +61,7 @@ class Game extends React.Component {
                                     });
                             }
                            });
-        }
-        //console.log(this.state.winner);
+        };
     }
 
     findWinner(player) {
@@ -95,7 +94,7 @@ class Game extends React.Component {
             this.setState({
                 winnerSquares: [].concat(...winner),
                 winner: player,
-            },/* () => alert(this.state.winner)*/);
+            });
 
 
             return winner;

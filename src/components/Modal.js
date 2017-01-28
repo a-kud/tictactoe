@@ -16,12 +16,3 @@ class Modal extends React.Component {
 }
 
 export default Modal;
-
-// <div className="modal">
-// 	<div className="modal-inner">
-// 		<a rel="modal:close"> x </a>
-// 		<div className="modal-content"></div>
-//     </div>
-// </div>
-
-// <a href="#prompt-modal" rel="modal:open"> Prompt </a>
