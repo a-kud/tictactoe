@@ -21,7 +21,11 @@ var config = {
             },
             {
                 test: /\.css$/,
-                loaders: ["style-loader", "css-loader", "sass-loader"],
+                loader: "style-loader!css-loader",
+            },
+            {
+                test: /\.pug$/,
+                loader: "pug-html-loader?pretty",
             },
         ],
     },
@@ -39,12 +43,16 @@ var config = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
           }
         }),
         new webpack.optimize.UglifyJsPlugin(),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            filename: "index.html",
+            template: "views/index.pug",
+            title: "Tic Tac Toe"
+        }),
     ]
 };
 
