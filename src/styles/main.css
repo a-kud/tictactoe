@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 .square {
     width: 5rem;
@@ -17,7 +17,7 @@
 }
 
 .board-row > .square {
-    font-family: "Montserrat", sans;
+    font-family: "Montserrat", sans-serif;
     font-size: 5rem;
     text-align: center;
 }
