@@ -1,5 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 var config = {
     context: path.join(__dirname, "src"),
@@ -19,7 +20,7 @@ var config = {
                 loaders: ["babel"],
             },
             {
-                test: /\.sass$/,
+                test: /\.css$/,
                 loaders: ["style-loader", "css-loader", "sass-loader"],
             },
         ],
@@ -43,6 +44,7 @@ var config = {
           }
         }),
         new webpack.optimize.UglifyJsPlugin(),
+        new HtmlWebpackPlugin(),
     ]
 };
 
