@@ -17,7 +17,6 @@ const modal = new VanillaModal({
     page: "html",
     clickOutside: false,
 });
-//modal.open("#prompt-modal");
 
 class Game extends React.Component {
     constructor() {
@@ -38,29 +37,28 @@ class Game extends React.Component {
             xNext = this.state.xNext,
             squareValue = grid[n];
 
-        console.log(grid, xNext, squareValue, n);
-
         if (!squareValue) {
             grid[n] = xNext ? "X" : "O";
-            let vaccantCellIndicies = grid.map((v, i) => { if(!v) {return i;} } );
+            let vaccantCellIndicies = grid.map((v, i) => { if(!v) {return i;}});
             let vaccantCells = vaccantCellIndicies.filter((v) => v); // filter falsy values
             let aiCell = vaccantCells[getRandom(vaccantCells.length)];
             grid[aiCell] = !xNext ? "X" : "O";
             this.setState({
                 grid: grid,
-                          }, () => {
-                            if (this.findWinner("X") || this.findWinner("O")) {
-                                sleep(100)
-                                    .then(() => {
-                                        Promise.resolve(alert(this.state.winner + "wins"))
-                                        .then(() => {
-                                            this.setState({
-                                                grid: Array(9).fill(null),
-                                            })
-                                        })
-                                    });
-                            }
-                           });
+                          },
+              () => {
+                if (this.findWinner("X") || this.findWinner("O")) {
+                    sleep(100)
+                        .then(() => {
+                            Promise.resolve(alert(this.state.winner + "wins"))
+                            .then(() => {
+                                this.setState({
+                                    grid: Array(9).fill(null),
+                                })
+                            })
+                        });
+                }
+               });
         };
     }
 
@@ -121,7 +119,7 @@ class Game extends React.Component {
                                 "false";
                     }}
                 />
-                <div>{"Next player " + (this.state.xNext ? "X" : "O")}</div>
+                <div>{"You are playing as " + (this.state.xNext ? "X" : "O")}</div>
                 <Modal
                     onClick={(player) => {
                         this.setState({

@@ -4,7 +4,7 @@ class Modal extends React.Component {
     render() {
         return (
             <div>
-                <a href="#prompt-modal" rel="modal:open"> Prompt </a>
+                <a href="#prompt-modal" rel="modal:open"> Change player </a>
                 <div id="prompt-modal" className="modal-hider">
                     <p>Please choose player</p>
                     <button id="choose-x" type="button" onClick={() => this.props.onClick("X")}>X</button>
